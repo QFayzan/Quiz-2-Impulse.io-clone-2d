@@ -7,19 +7,11 @@ public class EnemySpawner : MonoBehaviour
     public GameObject enemyPrefab;
     public float startDelay = 2.0f;
     public float repeatDelay = 4.0f;
-    private Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = gameObject.AddComponent<Rigidbody2D>();
         InvokeRepeating("SpawnEnemy", startDelay, repeatDelay);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
      void SpawnEnemy()
     {
@@ -31,6 +23,5 @@ public class EnemySpawner : MonoBehaviour
         Instantiate(enemyPrefab, spawnLocation2, enemyPrefab.transform.rotation);
         Instantiate(enemyPrefab, spawnLocation3, enemyPrefab.transform.rotation);
         Instantiate(enemyPrefab, spawnLocation4, enemyPrefab.transform.rotation);
-        //Entire follow mechanic here instance.GetComponent<Rigidbody>().AddForce(spawnLocation * 10);
     }
 }
