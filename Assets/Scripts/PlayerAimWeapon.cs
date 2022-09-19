@@ -39,7 +39,8 @@ public class PlayerAimWeapon : MonoBehaviour
         {
             Vector3 mousePosition = GetMouseWorldPosition();
             var instance =  Instantiate(bullet, bulletSpawnPoint.transform.position, bullet.transform.rotation);
-            instance.GetComponent<Rigidbody2D>().AddForce(mousePosition *knockBackStrength, ForceMode2D.Impulse);
+            Vector3 aimDirection = (mousePosition - transform.position).normalized;
+            instance.GetComponent<Rigidbody2D>().AddForce(aimDirection *knockBackStrength, ForceMode2D.Impulse);
             Destroy(instance, 0.2f);
         }
     }

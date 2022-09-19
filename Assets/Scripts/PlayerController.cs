@@ -36,13 +36,14 @@ public class PlayerController : MonoBehaviour
     {
         if (collision2D.gameObject.tag ==("Enemy") || collision2D.gameObject.tag == ("Wall") )
         {
-        Destroy(this.gameObject);
+        
             isDead = true;
         }
     }
     //the only non performance killer way to stop a game that i could remember at 11 pm
     void Die()
     {
+        Destroy(this.gameObject);
         Time.timeScale = 0; //all decorations and restart logic can be placed here
     }
  }
